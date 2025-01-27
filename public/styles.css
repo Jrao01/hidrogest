@@ -1,0 +1,175 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #092640;
+    display: flex;
+    flex-direction: column;
+}
+
+.h2{
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: #092640 solid 2px;
+}
+
+.h22{
+  color: #092640;
+  border-bottom: #092640 solid 2px;
+  padding-bottom: 4px;
+}
+
+.h2white{
+  padding-bottom: 4px;
+  border-bottom: white solid 2px;
+}
+
+.hero {
+    background: url('imgs/lake.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #F2F2F2;
+}
+
+#mapa{
+  background-color: #092640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.hero-content .btn {
+    background-color: #44AFF2;
+    color: #F2F2F2;
+    padding: 10px 30px;
+    border-radius: 25px;
+}
+
+.section h2 {
+    font-weight: 700;
+}
+
+iframe{
+  margin: auto;
+}
+
+footer .social-icons a {
+    font-size: 1.5rem;
+}
+
+ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+#equipo {
+  background-color: #f8f9fa;
+}
+
+#equipo .container {
+  text-align: center;
+}
+
+#equipo h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.roww{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+#equipo p {
+  font-size: clamp(.8rem,1vw,1.2rem);
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.misionContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px;
+}
+
+#servicios{
+  background-color: #092640;
+  color: white;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 16rem;
+  text-align: center;
+  padding: 1rem;
+  margin: 10px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+li, p{
+  font-size: clamp(.8rem,1vw,1.2rem);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.card p, li{
+  color: #666;
+  font-size: clamp(.9rem,1vw,1.2rem);
+}
+

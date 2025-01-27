@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HidroGest - Gestión de Recursos Hídricos</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #092640;
+
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .hero-content .btn {
+            background-color: #44AFF2;
+            color: #F2F2F2;
+            padding: 10px 30px;
+            border-radius: 25px;
+        }
+
+        footer .social-icons a {
+            font-size: 1.5rem;
+        }
+
+        .map {
+            height: 400px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            height: 20vh;
+            min-width: 120px;
+            min-height: 260px;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card h5 {
+            color: #2175BF;
+            margin-top: 15px;
+            font-weight: 600;
+           
+        }
+
+        .team-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .custom-navbar {
+
+            /* DEJO LOS COLORES EN SUS MANOS PORQUE SOY DALTONICO XD */
+
+    background-color: #092640; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.custom-navbar .nav-link {
+    color: #ffffff; 
+    transition: color 0.3s; 
+}
+
+.custom-navbar .nav-link:hover {
+    color: #ffcc00;
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Icono del toggler personalizado */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="imgs/Logo.png" alt="Logo HidroGest" style="width: 50px; margin-right: 10px;">
+                HidroGest
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#equipo">Nuestro Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mision">Misión, Visión y Objetivos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Sección Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content text-center">
+            <h1>Bienvenido a HidroGest 
+                <img src="imgs/Logo.png" alt="Logo HidroGest" style="width: 15vh;max-width: 200px; "> </h1>
+            <p>Innovamos para un futuro sostenible con gestión eficiente de recursos hídricos.</p>
+            <a href="#servicios" class="btn btn-primary">Explorar Servicios</a>
+            
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <h2 class="h2white text-center mb-4">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-chart-line fa-3x mb-3 text-primary"></i>
+                    <h4>Levantamiento de Datos</h4>
+                    <p>Recolección precisa de datos hidrológicos.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-map-marked-alt fa-3x mb-3 text-primary"></i>
+                    <h4>Análisis Espacial</h4>
+                    <p>Mapeo detallado de recursos hídricos.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-water fa-3x mb-3 text-primary"></i>
+                    <h4>Consultoría</h4>
+                    <p>Soluciones estratégicas en la administración del agua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="h22 text-center mb-4">Nuestro Equipo</h2>
+            <p class="text-center mb-5">Nuestro equipo está compuesto por profesionales multidisciplinarios con amplia experiencia en hidrología, análisis de datos y sostenibilidad ambiental.</p>
+            
+            <div class="roww">
+                <div class="col-md-3 mb-4">
+                    <div class="team-card text-center">
+                        <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        <h5>Oscar Santander</h5>
+                        <p>Dirección General</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="team-card text-center">
+                        <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        <h5>Yara Bastidas</h5>
+                        <p>Departamento de Investigación y Desarrollo</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="team-card text-center">
+                        <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        <h5>Angley Barrios</h5>
+                        <p>Departamento de Recursos Humanos, Administrativo y Financiero</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="team-card text-center">
+                        <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        <h5>Ángel Aguilar </h5>
+                        <p>Departamento de Marketing, Relaciones y Opiniones públicas</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="team-card text-center">
+                        <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        <h5>Julian Amer</h5>
+                        <p> análisis y recopilación de datos</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="team-card text-center">
+                        <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        <h5>Wilmer Belisario</h5>
+                        <p>programación y mantenimiento de sistema</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="team-card text-center">
+                        <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        <h5>Juan Bolívar</h5>
+                        <p>Departamento de Catastro Hidrológico monitoreo y análisis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps -->
+    <section id="mapa" class="py-5">
+        <div class="container">
+            <h2 class="h2">Ubicación</h2>
+            <div id="map" class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.7887933762768!2d-67.35714492520758!3d9.912748390188264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2aa9bf61ea0191%3A0x6ec39b857b3d4b8a!2sPlaza%20Bol%C3%ADvar%20de%20San%20Juan%20de%20los%20Morros!5e1!3m2!1ses!2sve!4v1737937497521!5m2!1ses!2sve" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+
+    </section>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .section-title {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 33vh;
+            min-height: 320px
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="misionContainer" id="mision">
+    <h2 class="section-title">Misión, Visión y Objetivos</h2>
+    <div class="roww">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Misión</h4>
+                    <p>Implementar un sistema integral de gestión y monitoreo de los recursos hídricos 
+                        del estado Guárico que permita identificar y controlar fallas hidrológicas, optimizar 
+                        la distribución del agua y fomentar su uso sostenible.</p>
+                </div>
+        </div>
+        
+            <div class="card">
+                <div class="card-body">
+                    <h4>Visión</h4>
+                    <p>Establecer un sistema de catastro hidrológico que permita la gestión eficiente y 
+                        sostenible del agua en el estado Guárico, asegurando que cada habitante tenga acceso 
+                        adecuado a este recurso vital.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4>Objetivos</h4>
+                    <ul>
+                        <li>Generar informes periódicos para decisiones informadas. </li>
+                        <li> Optimizar el uso y distribución equitativa de recursos hídricos.</li>
+                        <li>Promover la sostenibilidad y el uso responsable del agua.</li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center" style="background-color: #092640; color: #F2F2F2;">
+        <p>© 2025 HidroGest - Todos los derechos reservados</p>
+        <div class="social-icons">
+            <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // Seleccionar todos los enlaces con href que empiezan con #
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+    
+</body>
+</html>
