@@ -49,6 +49,7 @@ flex-direction: column;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
 
 .iContainer{
@@ -90,7 +91,7 @@ h1{
     box-sizing: border-box;
     display: flex;
     background-color: rgba(9, 38, 64, 0.05);
-    width: auto;
+    max-width: 45%;
     border-radius: 12px;
     border: transparent;
     min-height: 70px;
@@ -102,6 +103,24 @@ h1{
     margin-bottom: 16px;
     padding: 10px;
     min-width: 275px;
+}
+
+.header div h2{
+    margin: 0;
+}
+
+@media screen and (max-width:868px) {
+
+    .data, .data2{
+        width: 80%;
+        max-width: none;
+    }
+    
+}
+
+.span1{
+    color: rgb(107 114 128 / 1);
+    font-size: 25px;
 }
 
 span{

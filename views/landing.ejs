@@ -23,14 +23,14 @@
 <body>
 
 <h1 style="line-height: 60px;display: flex;" > <a href="/"><img src="imgs/Logo.png" alt=" logo de hidrogest " style="height: 60px;" ></a> Panel de Usuario</h1>
-<span> Bienvenido a tu Dashboard personal</span>
+<span class="span1" > Bienvenido a tu Dashboard personal</span>
 
 
 <main class="main">
     <header class="header">
         <div class="iContainer"><i id="user" class="fa-regular fa-user fa-2xl"   style="color: white;  " ></i></div>
         <div>
-            <h2> <%= userdata.sector.nombre %> </h2>
+            <h2> <%= userdata.nombre %> </h2>
             <span>ID: <%=userdata.id%></span>
         </div>
     </header>
