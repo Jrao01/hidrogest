@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar sector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+
+<form action="/secUpdated" method="post" class="form" >
+
+
+        <img src="/imgs/Logo.png" alt=" logo de hidrogest " >
+        <h1> Resgistro de sectores </h1>
+
+        <input type="number" name="id" value="<%=sector.id%>" hidden>
+
+        <label class="label"  for="nombre">
+            <i class="fa-solid fa-map-pin fa-lg" style="color: #092640;"></i>
+            <input type="text" class="input" value="<%=sector.nombre%>"  id="nombre" name="nombre" required  >
+        </label>
+
+        
+        <label class="label"  for="coords">
+            <i class="fa-solid fa-map fa-lg" style="color: #092640;"></i>
+            <input type="text" class="input" id="coords" name="coords" required  value="<%=sector.coords%>" placeholder="busca las coordenadas en google maps">
+        </label>
+
+        <label class="label" for="status">
+            <i class="fa-solid fa-check" style="color: #092640;"></i>
+            <select name="status" id="status" class="input">
+                <option selected value="<%=sector.status%>"><%=sector.status%></option>
+                <option value="activo">activo</option>
+                <option value="inactivo">inactivo</option>
+            </select>
+        </label>
+        
+        <div class="buttonContainer" >
+
+            <button class="button" >Registrar</button>
+            <a class="button" href="/tabla"> ver Sectores </a>
+        </div>
+
+</form>
+
+</body>
+</html>

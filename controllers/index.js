@@ -23,12 +23,12 @@ const index = (req,res)=>{
         }
     };
 
-const editSectorget = async(req,res)=>{
+const getEditar = async(req,res)=>{
     try{
         const {id} = req.params.id;
-        const sector = sectoress.findOne({Where:{id}});
-
-        res.render('editSector',{sector})
+        console.log(id)
+        const sector = await sectoress.findOne({Where:{id}});
+        res.render('admin/editSector',{sector})
 
     }catch(error){
         console.error(error.message);
@@ -90,6 +90,18 @@ const renderLanding = async (req, res) => {
 
 
 // posts
+
+const eidtPost = async (req,res)=>{
+    try{
+        const {nombre, status, coords, id} = req.body;
+        await sectoress.update({nombre,status,coords}, {where:{id}})
+        res.redirect('/admin/tabla')
+
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Error al cargar la página");
+    }
+}
 
 const registerPost = async (req, res) => {
     try {
@@ -171,4 +183,4 @@ const loginPost = async (req, res) => {
 
 
 
-module.exports={index,loginPost,register,sectorAdded,registerPost,changeStatus,getTabla,renderLanding}
+module.exports={index,loginPost,register,sectorAdded,registerPost,changeStatus,getTabla,renderLanding,getEditar,eidtPost}
