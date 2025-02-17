@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<form action="/login" method="post" class="form" >
+
+    <img src="imgs/logo.png" alt="">
+    <h1> Bienvenido a Hidrogest! </h1>
+
+        <label class="label" for="email">
+            <i class="fa-solid fa-envelope fa-lg" style="color: #00276b;"></i>
+            <input type="email" class="input" id="email" name="email" required  placeholder="Julianrafael1604@gmail.com">
+        </label>
+
+        <label class="label" for="Pass">
+            <i class="fa-solid fa-lock fa-lg" style="color: #00276b;" ></i>
+            <input type="password" class="input" id="pass" name="password" required  placeholder="********" maxlength="8" minlength="8" >
+        </label>
+        
+        <div class="buttonContainer" >
+
+            <button class="button" >Iniciar Sesión</button>
+            <a class="button" href="/register"> Registrate </a>
+        </div>
+
+</form>
+
+</body>
+</html>

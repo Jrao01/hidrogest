@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestion de recursos Hidricos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body{
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+
+
+        <h1 style="margin: auto; height: 10vh;display: flex; align-items: center;justify-content: center;text-align: center;" >Gestion de Recursos Hidricos 
+            <img src="/imgs/Logo.png" alt="" style="width: 80px;"> </h1>
+
+        <div class="buttonContainer" style="margin: auto;padding-bottom: 20px;"  > 
+
+                <a href="/addSector" style="margin: auto; text-decoration: none; text-align: center; padding: 10px; color: #092640; font-weight: 700;" >
+                    Agregar Sector</a>
+                    
+                    <a href="/login" style="margin: auto; text-decoration: none; text-align: center; padding: 10px; color: #092640; font-weight: 700;" >
+                        Salir</a>
+        </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Cant. Hbitantes</th>
+                <th>Coordenadas</th>
+                <th>Status servicio</th>
+                <th>editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%sectoresdata.forEach((sector)=>{%>
+            <tr>
+            <td><%=sector.id%></td>
+            <td><%=sector.nombre%></td>
+            <td><%=sector.habitantes%></td>
+            <td><%=sector.coords%></td>
+            <td class="<%=sector.status%>"><a href="/changeStatus/<%=sector.id%>/<%=sector.status%>"><%=sector.status%></a></td>
+            <td> <a href="/editar/<%=sector.id%>"> <i class="fa-solid fa-pen-to-square fa-lg"></i> </a></td>
+            </tr>
+        <%})%>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar sector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<form action="/sectorAdded" method="post" class="form" >
+
+
+        <img src="imgs/logo.png" alt=" logo de hidrogest " >
+        <h1> Resgistro de sectores </h1>
+
+        <label class="label"  for="nombre">
+            <i class="fa-solid fa-map-pin fa-lg" style="color: #092640;"></i>
+            <input type="text" class="input" id="nombre" name="nombre" required  placeholder="Banco Obrero">
+        </label>
+
+        
+        <label class="label"  for="coords">
+            <i class="fa-solid fa-map fa-lg" style="color: #092640;"></i>
+            <input type="text" class="input" id="coords" name="coords" required  placeholder="busca las coordenadas en google maps">
+        </label>
+
+        <label class="label" for="status">
+            <i class="fa-solid fa-check" style="color: #092640;"></i>
+            <select name="status" id="status" class="input">
+                <option value="activo">activo</option>
+                <option value="inactivo">inactivo</option>
+            </select>
+        </label>
+        
+        <div class="buttonContainer" >
+
+            <button class="button" >Registrar</button>
+            <a class="button" href="/tabla"> ver Sectores </a>
+        </div>
+
+</form>
+
+</body>
+</html>

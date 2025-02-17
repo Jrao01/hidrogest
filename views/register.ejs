@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<form action="/addUser" method="post" class="form" >
+
+    <img src="imgs/logo.png" alt="">
+    <h1> Bienvenido a Hidrogest! </h1>
+    
+            <label for="">Nombre Completo</label>
+            <label for="nombre" class="label" >
+                <i class="fa-solid fa-user fa-lg" style="color: #00276b;" ></i>
+                <input type="text" class="input" id="nombre" name="nombre" required placeholder="Oscar Santander">
+            </label>
+
+        <label for="">Correo electrónico</label>
+        <label class="label" for="email">
+            <i class="fa-solid fa-envelope fa-lg" style="color: #00276b;"></i>
+            <input type="email" class="input" id="email" name="email" required  placeholder="Julianrafael1604@gmail.com">
+        </label>
+        
+        <label for="">Cédula</label>
+        <label for="cedula" class="label" >
+            <i class="fa-solid fa-id-card fa-lg" style="color: #00276b;"></i>
+            <input type="text" class="input" id="cedula" name="cedula" min="7" max="9" required placeholder="30336715">
+        </label>
+        
+        <label for="">Teléfono</label>
+        <label for="Teléfono" class="label" >
+            <i class="fa-solid fa-id-card fa-lg" style="color: #00276b;"></i>
+            <input type="text" class="input" id="Teléfono" name="telefono" required placeholder="04244588840">
+        </label>
+        
+        <label for="">Sector</label>
+        <label for="sectorId" class="label" >
+            <i class="fa-solid fa-map-pin fa-lg" style="color: #092640;"></i>
+            <select name="sectorId" class="input" id="sectorId" >
+                <%sectoressData.forEach((sector)=>{%>
+                <option value="<%=sector.id%>"><%=sector.nombre%></option>                    
+                <%})%>
+            </select>
+        </label>
+        
+        <label for="">Coordenadas de dicha Propiedad </label>
+        <label for="coordenadasCasa" class="label" >
+            <i class="fa-solid fa-map fa-lg"></i>
+            <input type="text"  class="input" id="coordenadasCasa" name="coordenadasCasa" required placeholder="las coodenadas de tu casa">
+        </label>
+        
+        <label for="">Tipo de Propiedad</label>
+        <label for="tipoPropiedad" class="label" >
+            <i class="fa-solid fa-map-pin fa-lg" style="color: #092640;"></i>
+            <select name="tipoPropiedad" class="input" id="tipoPropiedad" >
+                <option value="1">1</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </label>
+        
+        <label for="">Cedula del dueño de la propiedad</label>
+        <label for="cedulaOwner" class="label" >
+            <i class="fa-regular fa-id-card fa-lg" style="color: #00276b;" ></i>
+            <input type="text" class="input" id="cedulaOwner" name="cedulaOwner" required placeholder="7119035">
+        </label>
+            
+        <label for="">¿Usted arrienda dicha propiedad?</label>
+        <label for="alquilado" class="label" style="justify-content: space-evenly;">
+                        <span>No<input type="radio" class="input"  value="no" name="alquilado" required></span>
+                        <span>Si<input type="radio" class="input"  value="si" name="alquilado" checked ></span>
+                    </label>
+
+                    
+        <label for="">Cantidad de personas viviendo con usted</label>
+        <label for="personas" class="label" >
+            <i class="fa-solid fa-list-ol fa-lg"></i>
+            <input type="number" min="1"  class="input" id="personas" name="personasEnvivienda" required placeholder="7119035">
+        </label>
+
+        <label for="">Contraseña</label>
+        <label for="Pass" class="label" >
+            <i class="fa-solid fa-lock fa-lg" style="color: #00276b;" ></i>
+            <input type="password" class="input" id="pass" name="password" required  placeholder="********" maxlength="8" minlength="8" >
+        </label>
+
+        <div class="buttonContainer">
+
+            <button class="button">Registrate </button>
+            <a class="button" href="/login"> Inicia sesión </a>
+        </div>
+
+</form>
+
+</body>
+</html>

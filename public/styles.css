@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    color: #092640;
+    color: #092640 !important;
     display: flex;
     flex-direction: column;
 }
@@ -173,3 +173,42 @@ li, p{
   font-size: clamp(.9rem,1vw,1.2rem);
 }
 
+thead{
+  background-color: #092640 !important;
+  padding: 4px;
+  color: white;
+}
+
+td{
+  text-align: center;
+}
+
+
+tr{
+  background-color: white;
+}
+
+thead tr:nth-child(1){
+  background-color: #092640;
+}
+
+tr:nth-child(even){
+  background-color: #e0e0e0;
+}
+
+
+
+.activo a, .inactivo a {
+  font-weight: 700;
+  text-decoration: none;
+  color: green;
+}
+
+.inactivo a {
+  color: red;
+}
+
+tr:hover, tr:hover td a {
+  background-color: #092640;
+  color: white !important;
+}

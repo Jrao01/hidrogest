@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDYBWY97KW"></script>
+    <style type="text/css">
+
+        .leaflet-container {
+            height: 400px;
+            min-width: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <style> #map { height: 100%;}</style>
+</head>
+<body>
+
+<h1 style="line-height: 60px;display: flex;" > <a href="/"><img src="imgs/logo.png" alt=" logo de hidrogest " style="height: 60px;" ></a> Panel de Usuario</h1>
+<span> Bienvenido a tu Dashboard personal</span>
+
+
+<main class="main">
+    <header class="header">
+        <div class="iContainer"><i id="user" class="fa-regular fa-user fa-2xl"   style="color: white;  " ></i></div>
+        <div>
+            <h2> <%= userdata.sector.nombre %> </h2>
+            <span>ID: <%=userdata.id%></span>
+        </div>
+    </header>
+    <section class="userdata">
+
+    <div class="data">
+        <i class="fa-regular fa-envelope fa-xl" style="color: #092640;"></i>
+        <div><span>Correo:</span> <p> <%=userdata.email%> </p> </div>
+    </div>
+
+    <div class="data"> 
+        <i class="fa-solid fa-id-card fa-xl" style="color: #092640;"></i>
+        <div> <span>Cédula:  </span> <p> <%=userdata.cedula%> </p></div>
+    </div>
+
+    <div class="data"> 
+        <i class="fa-solid fa-map-pin fa-xl" style="color: #092640;"></i>
+        <div> <span>Sector:  </span> <p> <%=userdata.sector.nombre%></p></div>
+    </div>
+
+    <div class="data"> 
+        <i class="fa-solid fa-map fa-xl"></i>
+        <div> <span>Ubicación:  </span> <p> <%=userdata.coordenadasCasa%></p></div>
+    </div>
+
+    <div class="data">
+        <i class="fa-solid fa-map-pin fa-xl" style="color: #092640;"></i>
+        <div> <span>Cedula de  propietario: </span> <p> <%=userdata.cedulaOwner%></p></div>
+    </div>
+
+    <div class="data">
+        <i class="fa-solid fa-map-pin fa-xl" style="color: #092640;"></i>
+        <div> <span>Tipo de  Propiedad: </span>  <p> <%=userdata.tipoPropiedad%></p></div>
+    </div>
+
+    <div class="data">    
+        <i class="fa-regular fa-id-card fa-xl" style="color: #092640;" ></i>
+        <div> <span>¿Está arrendado ?: </span> <p> <%=userdata.alquilado%></p></div>
+    </div>
+
+    <div class="data"> 
+        <i class="fa-solid fa-list-ol fa-xl"></i>
+        <div> <span>Cant.  Personas en Ubicación: </span> <p> <%=userdata.personasEnvivienda%></p></div>
+    </div>
+
+    
+    <div class="data"> 
+        <i class="fa-solid fa-list-ol fa-xl"></i>
+        <div> <span>Su servicio está: </span> <p> <%=userdata.sector.status%></p></div>
+    </div>
+
+    
+    <div class="data2"> 
+        <i class="fa-solid fa-list-ol fa-xl"></i>
+        <div> <span>Último cambio de estatus </span> <p> <%=userdata.updatedAt%></p></div>
+    </div>
+    <div class="data2"> 
+        <i class="fa-solid fa-list-ol fa-xl"></i>
+        <div> <span>Contactenos en caso de :</span> <p> han pasado mas de 6H y no se ha reestablecido el suministro de agua</p></div>
+    </div>
+
+
+    
+</section>
+<div id="sectoresinfo" data-info="<%= JSON.stringify(allSectors) %>" ></div>
+</main>
+
+
+<h2 style="color: aliceblue;text-align: center;" >Disponibilidad del Agua actualmente </h2>
+<div id='map' class="main2" style="height: 30vh !important;" ></div>
+
+<div class="main">  
+    <h3 style="color:#092640 ;">Nuestras redes sociales</h3>
+    <div class="social-icons">
+        <a target="_blank" href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F%3Fcheckpoint_src%3Dany" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a target="_blank" href="https://www.instagram.com/accounts/login/?source=logged_out_sem" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+        <a target="_blank" href="https://twitter.com/i/flow/signup" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+        <a target="_blank" href="https://web.whatsapp.com/" class="text-white mx-2"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</div>
+
+<script>
+
+let datos
+window.addEventListener('DOMContentLoaded', () => { // Escuchar a DOMContentLoaded
+
+const divsectores = document.getElementById("sectoresinfo");
+
+if (!divsectores) {
+    console.error("No se encontró el elemento con ID 'sectoresinfo'");
+    return; // Salir si no se encuentra el elemento
+}
+
+try {
+    datos = JSON.parse(divsectores.dataset.info);
+    console.log("Datos:", datos); // Imprime el objeto completo para inspeccionar
+
+
+
+
+
+} catch (error) {
+    console.error("Error al parsear JSON:", error);
+}
+
+
+    
+
+    window.addEventListener('load',()=>{
+    const map = L.map('map').fitWorld();
+
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 20,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    function onLocationFound(e) {
+        const radius = e.accuracy / 15;
+
+        const locationMarker = L.marker(e.latlng).addTo(map)
+            .bindPopup(`Estás en un rango de ${radius} metros desde este punto`).openPopup();
+
+        const locationCircle = L.circle(e.latlng, radius).addTo(map);
+        console.log(`latitud : ${e.latlng.lat} longitud : ${e.latlng.lng}`)
+        fetch(`/ubicacion?lat=${e.latlng.lat}&lng=${e.latlng.lng}`)
+        .then(res=>res.json())
+        .then(respuesta=>{
+            console.log(respuesta,'XXXXXXXXXXXXXXXXXXXXXXXXX');
+        })
+        datos.forEach(sec => {
+    console.log(sec.nombre);
+    console.log(sec.status);
+    console.log(sec.coords);
+
+    if (typeof sec.coords === 'string') { // Verifica si es una cadena
+        const coordsArray = sec.coords.trim().split(/,\s*/); // Elimina espacios y divide
+        if (coordsArray.length === 2) { // Verifica que haya dos elementos
+            const latitud = parseFloat(coordsArray[0]);
+            const longitud = parseFloat(coordsArray[1]);
+
+            if (isNaN(latitud) || isNaN(longitud)) {
+                console.error(`Coordenadas inválidas para ${sec.nombre}: ${sec.coords}`);
+            } else {
+                console.log("Latitud:", latitud, "Longitud:", longitud);
+                L.marker([latitud, longitud]).addTo(map)
+                    .bindPopup(sec.nombre + "<br>" +" servicio de agua: "+"<span>" + sec.status + "</span>",{className:"popUp"}).openPopup();
+            }
+        } else {
+            console.error(`Formato de coordenadas incorrecto para ${sec.nombre}: ${sec.coords}`);
+        }
+    } else if (Array.isArray(sec.coords) && sec.coords.length === 2) { // Si ya es un array
+        const latitud = parseFloat(sec.coords[0]);
+        const longitud = parseFloat(sec.coords[1]);
+        if (isNaN(latitud) || isNaN(longitud)) {
+            console.error(`Coordenadas inválidas para ${sec.nombre}: ${sec.coords}`);
+        } else {
+            console.log("Latitud:", latitud, "Longitud:", longitud);
+            L.marker([latitud, longitud]).addTo(map)
+                .bindPopup(sec.nombre + "<br>" + sec.status);
+        }
+    } else {
+        console.error(`Formato de coordenadas desconocido para ${sec.nombre}: ${sec.coords}`);
+    }
+});
+                }
+
+    function onLocationError(e) {
+        alert(e.message);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+
+    map.locate({setView: true, maxZoom: 16});
+
+    function locate(){
+        map.locate({setView: true, maxZoom: 10});
+    }
+    setInterval(locate,60000);
+    })
+    
+});
+</script>
+
+</body>
+</html>
